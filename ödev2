@@ -1,0 +1,34 @@
+using System;
+
+namespace BuyukHarfKucukHarf
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Bir metin girin: ");
+            string girilenMetin = Console.ReadLine();
+
+            string kucukHarfMetin = BuyukHarfKucukHarfDonustur(girilenMetin);
+
+            Console.WriteLine("Küçük harfe dönüştürülmüş metin: " + kucukHarfMetin);
+
+            Console.ReadKey();
+        }
+
+        static string BuyukHarfKucukHarfDonustur(string metin)
+        {
+            char[] karakterler = metin.ToCharArray();
+
+            for (int i = 0; i < karakterler.Length; i++)
+            {
+                if (karakterler[i] >= 'A' && karakterler[i] <= 'Z')
+                {
+                    karakterler[i] = (char)(karakterler[i] + 32); // ASCII'de büyük harfin küçük harfe dönüşümü
+                }
+            }
+
+            return new string(karakterler);
+        }
+    }
+}
